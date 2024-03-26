@@ -1,10 +1,10 @@
-/* Appliquer le même style à toute la page */
+
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: rgb(15, 45, 18);
-    color: whitesmoke;
+    background-color: burlywood;
+    color: rgb(40, 24, 3);
 }
 
 .container {
@@ -12,7 +12,6 @@ body {
     margin: 0 auto;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 20px beige;
     
 }
 header {
@@ -27,10 +26,10 @@ padding: 10px;
 ul li a{
     
     text-decoration: none;
-color: #fff;
+color:rgb(40, 24, 3);
 }
 ul li a:hover{
-color: #746e6e;
+color:beige;
 }
 
 .category-icons {
@@ -40,7 +39,6 @@ color: #746e6e;
 }
 
 .category-icon {
-   /* Assurez-vous que la largeur et la hauteur sont les mêmes pour obtenir un cercle parfait */
     border-radius: 50%; /* Pour créer un cercle */
     display: flex;
     flex-direction: column;
@@ -52,9 +50,10 @@ color: #746e6e;
 }
 
 .category-icon img {
-     width: 105px; /* Ajustez la taille de l'image si nécessaire */
-    height: 100px; /* Ajustez la taille de l'image si nécessaire */
-    border-radius: 50%; /* Pour s'assurer que l'image est également un cercle */
+    width: 105px; 
+    height: 100px; 
+    border-radius: 50%; 
+    box-shadow: 0 0 20px rgb(109, 67, 11);
 }
 
 
@@ -78,7 +77,7 @@ color: #746e6e;
     margin-bottom: 20px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgb(109, 67, 11);
 }
 
 .image-container {
@@ -110,7 +109,7 @@ color: #746e6e;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border-top: 2px solid gray; /* Ajout d'une bordure en haut */
+    border-top: 2px solid rgb(109, 67, 11); /* Ajout d'une bordure en haut */
 }
 
 .item-details .price {
@@ -161,13 +160,13 @@ color: #746e6e;
     right: 0;
     bottom: 0; /* Pour couvrir toute la hauteur de la page */
     width: 150px;
-    background-color: #f2f2f2;
+    background-color: beige;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(15, 45, 18);
-    z-index: 999; /* Assure que la fenêtre s'affiche au-dessus du reste du contenu */
+    color: rgb(109, 67, 11);
+    
 }
 .order-window h2 {
     margin-top: 0;
@@ -191,8 +190,8 @@ color: #746e6e;
     width: 100%;
     padding: 10px;
     margin-top: 20px;
-    background-color: rgb(15, 45, 18);
-    color: beige;
+    background-color:rgb(109, 67, 11);
+    color:burlywood;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -203,4 +202,6 @@ color: #746e6e;
 .checkout-btn:hover {
     background-color: rgb(142, 130, 130);
 }
+
+
 
