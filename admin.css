@@ -1,0 +1,100 @@
+/* Styles pour la page d'authentification administrateur */
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: burlywood;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    touch-action: manipulation; /* Améliore la réactivité sur les écrans tactiles */
+}
+
+.login-container {
+    width: 80%;
+    max-width: 400px; /* Limitation de la largeur pour une meilleure lisibilité sur tablette */
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px black;
+    background-color: rgb(189, 145, 89);
+    animation: slideIn 0.5s ease-out, fadeIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.login-container h2 {
+    margin-top: 0;
+    text-align: center;
+    color: black;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: rgb(15, 45, 18);
+}
+
+.form-group input {
+    width: calc(100% - 24px); /* Ajustement pour compenser les marges des champs de saisie */
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Inclure les bordures et les rembourrages dans la largeur totale */
+}
+
+.form-group input:focus {
+    border-color: black;
+}
+
+button[type="submit"] {
+    width: calc(100% - 24px); /* Ajustement pour compenser les marges des boutons */
+    padding: 12px;
+    background-color:rgb(109, 67, 11) ;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; /* Inclure les bordures et les rembourrages dans la largeur totale */
+}
+
+button[type="submit"]:hover {
+    background-color: burlywood;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    animation: fadeIn 0.5s ease-out;
+}
