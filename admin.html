@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentification Administrateur</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Authentification Administrateur</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="code">Code d'authentification</label>
+                <input type="password" id="code" name="code" placeholder="Entrez le code" required>
+            </div>
+            <button type="submit">ENTRER</button>
+        </form>
+        <p id="error-message" class="error-message"></p>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
