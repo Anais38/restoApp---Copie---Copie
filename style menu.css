@@ -40,8 +40,7 @@ color: #746e6e;
 }
 
 .category-icon {
-    width: 120px;
-    height: 120px; /* Assurez-vous que la largeur et la hauteur sont les mêmes pour obtenir un cercle parfait */
+   /* Assurez-vous que la largeur et la hauteur sont les mêmes pour obtenir un cercle parfait */
     border-radius: 50%; /* Pour créer un cercle */
     display: flex;
     flex-direction: column;
@@ -53,8 +52,8 @@ color: #746e6e;
 }
 
 .category-icon img {
-    max-width: 100px; /* Ajustez la taille de l'image si nécessaire */
-    max-height: 100px; /* Ajustez la taille de l'image si nécessaire */
+     width: 105px; /* Ajustez la taille de l'image si nécessaire */
+    height: 100px; /* Ajustez la taille de l'image si nécessaire */
     border-radius: 50%; /* Pour s'assurer que l'image est également un cercle */
 }
 
