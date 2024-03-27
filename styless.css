@@ -1,7 +1,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-     background-color: burlywood;
+   background-color: rgb(95, 15, 15);
+     background-image: linear-gradient(to left,rgb(46, 18, 15),rgba(95,  15, 15));
 }
 
 
@@ -37,15 +38,16 @@ nav ul {
 nav ul li {
     display: inline;
     margin-right: 10px; /* Espacement entre les éléments du menu */
+  
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+     color: #050505;
     font-weight: bold;
 }
 ul li a:hover{
-color:beige;
+color:rgb(238, 226, 221);
 }
 
 .welcome-section {
