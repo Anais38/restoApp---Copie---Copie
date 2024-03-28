@@ -1,17 +1,16 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-   background-color: rgb(95, 15, 15);
-     background-image: linear-gradient(to left,rgb(46, 18, 15),rgba(95,  15, 15));
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: burlywood;
 }
-
 
 header {
-    text-align: center;
-    padding: 10px;
-  padding-top: 30PX;
-    
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* Pour séparer le logo et le menu */
+    align-items: center;
 }
+
 .logo {
     width: 70px; /* Taille du cercle */
     height: 70px; /* Taille du cercle */
@@ -23,32 +22,49 @@ header {
 .logo img {
     width: 100%; /* Remplir le cercle */
     height: auto; /* Ajuster la hauteur en conséquence */
+    box-shadow: 0 0 20px rgb(109, 67, 11);
 }
 
 nav {
-    margin-left: 10px; /* Espacement entre le logo et le menu */
+    margin-left: auto; /* Pour placer le menu à droite */
+    margin-right: auto; /* Pour centrer le menu */
 }
 
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex; /* Utiliser Flexbox pour centrer les éléments du menu */
+    justify-content: center; /* Centrer horizontalement */
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 10px; /* Espacement entre les éléments du menu */
-  
+    margin-right: 30px; /* Espacement entre les éléments du menu */
+    border-radius: 50%; /* Pour créer un cercle */
+    background-color:rgb(183, 140, 85); /* Fond du cercle */
+    width: 80px; /* Taille du cercle */
+    height: 70px; /* Taille du cercle */
+    text-align: center; /* Pour centrer le texte horizontalement */
+    line-height: 70px; /* Pour centrer le texte verticalement */
+    box-shadow: 0 0 20px rgb(109, 67, 11);
 }
 
 nav ul li a {
     text-decoration: none;
-     color: #050505;
+    color: beige;
     font-weight: bold;
+    transition: color 0.3s ease; /* Ajouter une transition de couleur au survol */
+    animation: fadein 3s; /* Ajouter une animation de fondu */
 }
-ul li a:hover{
-color:rgb(238, 226, 221);
+
+nav ul li a:hover {
+    color: #fff; /* Changement de couleur au survol */
 }
+
+nav ul li a:active {
+    transform: scale(0.95); /* Réduction de la taille lors du clic */
+}
+
 
 .welcome-section {
     display: flex;
@@ -60,11 +76,42 @@ color:rgb(238, 226, 221);
 .welcome-text {
     margin-left: 20px;
     margin-top: 20px;
+    color:rgb(109, 67, 11) ;
+    font-size: 24px; /* Agrandir la taille du texte */
+    animation: fadein 3s; /* Ajouter une animation de fondu */
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 2; }
 }
 
 .restaurant-image img {
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    border: 5px solid #fff;
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 0 20px rgb(109, 67, 11);
+    animation: subtle-pulse 3s infinite alternate; /* Animation de pulsation subtile */
 }
+@media (min-width: 768px) {
+    .restaurant-image img {
+        border-radius: 50%;
+        width: 400px;
+        height: 400px;
+        box-shadow: 0 0 20px rgb(109, 67, 11);
+        animation: zoom-in 1s forwards; /* Animation de zoom-in */
+    }
+}
+
+@keyframes zoom-in {
+    from {
+        transform: scale(0); /* Taille initiale */
+        opacity: 0; /* Opacité initiale */
+    }
+    to {
+        transform: scale(1); /* Taille finale */
+        opacity: 1; /* Opacité finale */
+    }
+}
+
+
