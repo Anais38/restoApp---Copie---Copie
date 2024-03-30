@@ -17,47 +17,30 @@ function toggleCategory(categoryId) {
 document.addEventListener("DOMContentLoaded", function() {
     toggleCategory('entrees');
 });
+
 // JavaScript pour le compteur de commande
-
-// Sélection des éléments du DOM
-const counters = document.querySelectorAll('.order-counter');
-const quantityInputs = document.querySelectorAll('.quantity');
-const decrementButtons = document.querySelectorAll('.decrement');
-const incrementButtons = document.querySelectorAll('.increment');
-
-// Ajout des écouteurs d'événements pour les boutons + et -
-decrementButtons.forEach(button => {
-    button.addEventListener('click', decrement);
-});
-
-incrementButtons.forEach(button => {
-    button.addEventListener('click', increment);
-});
-
-// Fonction pour décrémenter la quantité
-function decrement(event) {
-    const counter = event.target.parentElement;
-    const quantityInput = counter.querySelector('.quantity');
-    let quantity = parseInt(quantityInput.value);
-
-    if (quantity > 0) {
-        quantity--;
-        quantityInput.value = quantity;
-    }
-}
-
-// Fonction pour incrémenter la quantité
-function increment(event) {
-    const counter = event.target.parentElement;
-    const quantityInput = counter.querySelector('.quantity');
-    let quantity = parseInt(quantityInput.value);
-
-    quantity++;
-    quantityInput.value = quantity;
-}
 document.addEventListener('DOMContentLoaded', function() {
     const orderWindow = document.querySelector('.order-window');
     const orderList = orderWindow.querySelector('.order-list');
+
+    function findOrderItem(itemName) {
+        return Array.from(orderList.children).find(item => item.textContent.startsWith(itemName));
+    }
+
+    function updateOrderItem(itemName, quantity) {
+        const orderItem = findOrderItem(itemName);
+        if (orderItem) {
+            if (quantity === 0) {
+                orderItem.remove(); // Supprime l'élément si la quantité est 0
+            } else {
+                orderItem.textContent = `${itemName}: ${quantity}`;
+            }
+        } else {
+            if (quantity > 0) {
+                addOrderItem(itemName, quantity); // Ajoute l'élément s'il n'existe pas déjà
+            }
+        }
+    }
 
     function addOrderItem(itemName, quantity) {
         const orderItem = document.createElement('li');
@@ -68,21 +51,40 @@ document.addEventListener('DOMContentLoaded', function() {
     function addToOrder(event) {
         const menuItem = event.target.closest('.menu-item');
         const itemName = menuItem.querySelector('p').textContent;
-        const quantity = parseInt(menuItem.querySelector('.quantity').value);
-        if (quantity > 0) {
-            addOrderItem(itemName, quantity);
+        const quantityInput = menuItem.querySelector('.quantity');
+        let quantity = parseInt(quantityInput.value);
+
+        if (event.target.classList.contains('increment')) {
+            quantity++;
+        } else {
+            quantity = Math.max(0, quantity - 1); // Assurez-vous que la quantité ne soit pas négative
         }
+
+        quantityInput.value = quantity;
+        updateOrderItem(itemName, quantity);
     }
 
-    const incrementButtons = document.querySelectorAll('.increment');
-    incrementButtons.forEach(button => {
-        button.addEventListener('click', addToOrder);
+    const counterButtons = document.querySelectorAll('.counter-btn');
+    counterButtons.forEach(button => {
+        button.addEventListener('touchstart', addToOrder); // Modifier l'événement à 'touchstart'
     });
 
     const checkoutBtn = document.querySelector('.checkout-btn');
-    checkoutBtn.addEventListener('click', function() {
-        // Vous pouvez ajouter ici le code pour finaliser la commande
-        alert('Votre commande a été passée avec succès !');
+    checkoutBtn.addEventListener('touchstart', function() { // Modifier l'événement à 'touchstart'
+        // Sélection de l'élément du message de confirmation
+        const confirmationMessage = document.getElementById('confirmationMessage');
+
+        // Fonction pour afficher le message de confirmation
+        function afficherMessageConfirmation() {
+            confirmationMessage.style.display = 'block'; // Afficher le message
+
+            setTimeout(function() {
+                confirmationMessage.style.display = 'none';
+            }, 2000);
+        }
+
+        // Appeler la fonction pour afficher le message de confirmation lorsque le bouton est touché
+        document.querySelector('.checkout-btn').addEventListener('touchstart', afficherMessageConfirmation);
+
     });
 });
-
