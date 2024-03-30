@@ -66,25 +66,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const counterButtons = document.querySelectorAll('.counter-btn');
     counterButtons.forEach(button => {
-        button.addEventListener('touchstart', addToOrder); // Modifier l'événement à 'touchstart'
+        button.addEventListener('click', addToOrder);
     });
 
     const checkoutBtn = document.querySelector('.checkout-btn');
-    checkoutBtn.addEventListener('touchstart', function() { // Modifier l'événement à 'touchstart'
+    checkoutBtn.addEventListener('click', function() {
         // Sélection de l'élément du message de confirmation
-        const confirmationMessage = document.getElementById('confirmationMessage');
+const confirmationMessage = document.getElementById('confirmationMessage');
 
-        // Fonction pour afficher le message de confirmation
-        function afficherMessageConfirmation() {
-            confirmationMessage.style.display = 'block'; // Afficher le message
+// Fonction pour afficher le message de confirmation
+function afficherMessageConfirmation() {
+    confirmationMessage.style.display = 'block'; // Afficher le message
 
-            setTimeout(function() {
-                confirmationMessage.style.display = 'none';
-            }, 2000);
-        }
+    setTimeout(function() {
+        confirmationMessage.style.display = 'none';
+    }, 2000);
+}
 
-        // Appeler la fonction pour afficher le message de confirmation lorsque le bouton est touché
-        document.querySelector('.checkout-btn').addEventListener('touchstart', afficherMessageConfirmation);
+// Appeler la fonction pour afficher le message de confirmation lorsque le bouton est cliqué
+document.querySelector('.checkout-btn').addEventListener('click', afficherMessageConfirmation);
 
     });
-});
+})
