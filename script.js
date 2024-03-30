@@ -77,17 +77,53 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const checkoutBtn = document.querySelector('.checkout-btn');
+    const confirmationMessage = document.getElementById('confirmationMessage');
+    const successMessage = document.getElementById('successMessage');
+    const emptyOrderMessage = document.getElementById('emptyOrderMessage');
+
+    // Ajout d'un écouteur d'événements au bouton "Envoyer la commande"
     checkoutBtn.addEventListener('click', function() {
-        const confirmationMessage = document.getElementById('confirmationMessage');
+        // Vérifier si la commande est vide
+        if (orderList.children.length === 0) {
+            // La commande est vide
+            emptyOrderMessage.style.display = 'block'; // Afficher le message "Votre commande est vide"
+            successMessage.style.display = 'none'; // Cacher le message de succès
+            confirmationMessage.style.display = 'none'; // Cacher le message de confirmation
 
-        // Fonction pour afficher le message de confirmation
-        function afficherMessageConfirmation() {
-            confirmationMessage.style.display = 'block';
+            // Cacher le message "Votre commande est vide" après 1 seconde
             setTimeout(function() {
-                confirmationMessage.style.display = 'none';
-            }, 2000); // Masquer le message après 2 secondes
+                emptyOrderMessage.style.display = 'none';
+            }, 1000);
+        } else {
+            // Afficher le message de confirmation avec deux boutons
+            confirmationMessage.style.display = 'block';
+            successMessage.style.display = 'none'; // Cacher le message de succès
+            emptyOrderMessage.style.display = 'none'; // Cacher le message "Votre commande est vide"
         }
+    });
 
-        document.querySelector('.checkout-btn').addEventListener('click', afficherMessageConfirmation);
+    // Ajout d'un écouteur d'événements au bouton "Oui" dans le message de confirmation
+    document.getElementById('confirmBtn').addEventListener('click', function() {
+        confirmationMessage.style.display = 'none'; // Cacher le message de confirmation
+        successMessage.style.display = 'block'; // Afficher le message de succès
+        setTimeout(function() {
+            successMessage.style.display = 'none'; // Cacher le message de succès après quelques secondes
+        }, 1000); // Masquer le message après 1 seconde
+        emptyOrderMessage.style.display = 'none'; // Cacher le message "Votre commande est vide"
+        // Réinitialiser la commande
+        orderList.innerHTML = '';
+
+        // Réinitialiser tous les compteurs à 0
+        const quantityInputs = document.querySelectorAll('.quantity');
+        quantityInputs.forEach(input => {
+            input.value = 0;
+        });
+    });
+
+    // Ajout d'un écouteur d'événements au bouton "Non" dans le message de confirmation
+    document.getElementById('cancelBtn').addEventListener('click', function() {
+        confirmationMessage.style.display = 'none'; // Cacher le message de confirmation
+        successMessage.style.display = 'none'; // Cacher le message de succès
+        emptyOrderMessage.style.display = 'none'; // Cacher le message "Votre commande est vide"
     });
 });
