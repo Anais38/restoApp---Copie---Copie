@@ -1,14 +1,15 @@
 // Fonction pour basculer entre les catégories de menu
 function toggleCategory(categoryId) {
+    // Sélection de toutes les catégories de menu
     var categories = document.querySelectorAll('.menu');
 
     // Parcourir toutes les catégories
     categories.forEach(function(cat) {
-        // Cacher toutes les catégories sauf celle cliquée
+        // Vérifier si la catégorie correspond à l'ID spécifié
         if (cat.id === categoryId) {
-            cat.style.display = "block";
+            cat.style.display = "block"; // Afficher la catégorie si c'est la bonne
         } else {
-            cat.style.display = "none";
+            cat.style.display = "none"; // Masquer les autres catégories
         }
     });
 }
@@ -20,20 +21,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // JavaScript pour le compteur de commande
 document.addEventListener('DOMContentLoaded', function() {
+    // Sélection de la fenêtre de commande et de la liste des commandes
     const orderWindow = document.querySelector('.order-window');
     const orderList = orderWindow.querySelector('.order-list');
 
+    // Fonction pour trouver un élément de commande spécifique dans la liste
     function findOrderItem(itemName) {
         return Array.from(orderList.children).find(item => item.textContent.startsWith(itemName));
     }
 
+    // Fonction pour mettre à jour la quantité d'un élément de commande
     function updateOrderItem(itemName, quantity) {
         const orderItem = findOrderItem(itemName);
         if (orderItem) {
             if (quantity === 0) {
                 orderItem.remove(); // Supprime l'élément si la quantité est 0
             } else {
-                orderItem.textContent = `${itemName}: ${quantity}`;
+                orderItem.textContent = `${itemName}: ${quantity}`; // Met à jour la quantité sinon
             }
         } else {
             if (quantity > 0) {
@@ -42,12 +46,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Fonction pour ajouter un élément de commande à la liste
     function addOrderItem(itemName, quantity) {
         const orderItem = document.createElement('li');
         orderItem.textContent = `${itemName}: ${quantity}`;
         orderList.appendChild(orderItem);
     }
 
+    // Fonction pour gérer l'ajout ou la soustraction d'un élément de commande
     function addToOrder(event) {
         const menuItem = event.target.closest('.menu-item');
         const itemName = menuItem.querySelector('p').textContent;
@@ -64,27 +70,24 @@ document.addEventListener('DOMContentLoaded', function() {
         updateOrderItem(itemName, quantity);
     }
 
+    // Sélection de tous les boutons du compteur
     const counterButtons = document.querySelectorAll('.counter-btn');
     counterButtons.forEach(button => {
-        button.addEventListener('click', addToOrder);
+        button.addEventListener('click', addToOrder); // Ajouter un écouteur d'événements à chaque bouton
     });
 
     const checkoutBtn = document.querySelector('.checkout-btn');
     checkoutBtn.addEventListener('click', function() {
-        // Sélection de l'élément du message de confirmation
-const confirmationMessage = document.getElementById('confirmationMessage');
+        const confirmationMessage = document.getElementById('confirmationMessage');
 
-// Fonction pour afficher le message de confirmation
-function afficherMessageConfirmation() {
-    confirmationMessage.style.display = 'block'; // Afficher le message
+        // Fonction pour afficher le message de confirmation
+        function afficherMessageConfirmation() {
+            confirmationMessage.style.display = 'block';
+            setTimeout(function() {
+                confirmationMessage.style.display = 'none';
+            }, 2000); // Masquer le message après 2 secondes
+        }
 
-    setTimeout(function() {
-        confirmationMessage.style.display = 'none';
-    }, 2000);
-}
-
-// Appeler la fonction pour afficher le message de confirmation lorsque le bouton est cliqué
-document.querySelector('.checkout-btn').addEventListener('click', afficherMessageConfirmation);
-
+        document.querySelector('.checkout-btn').addEventListener('click', afficherMessageConfirmation);
     });
-})
+});
