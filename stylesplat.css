@@ -1,28 +1,28 @@
 body {
-    font-family: 'Caveat', cursive; /* Police de style boho */
+    font-family: 'Caveat', cursive;
     margin: 0;
     padding: 0;
-    background-color: #dec8a0; /* Fond beige */
+    background-color: #dec8a0;
 }
 
 .container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #c99169; /* Fond blanc */
+    background-color: #c99169;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
-    color: #f5deb3; /* Marron clair */
-    font-size: 36px; /* Taille de police plus grande */
+    color: #f5deb3;
+    font-size: 36px;
     margin-bottom: 20px;
 }
 
 .description {
-    color: #8b4513; /* Marron clair */
+    color: #8b4513;
     font-size: 16px;
 }
 
@@ -34,4 +34,3 @@ h1 {
 .description ul li {
     margin-bottom: 5px;
 }
-
