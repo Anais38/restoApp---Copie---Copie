@@ -508,8 +508,18 @@
             </ul>
             <button class="checkout-btn">Envoyer la commande</button>
         </div>
-        <div class="confirmation-message" id="confirmationMessage">
-            <p>Votre commande a été passée avec succès</p>
+        <div id="confirmationMessage" class="confirmation-message">
+            <p>Voulez-vous vraiment passer votre commande ?</p>
+            <button id="confirmBtn">Oui</button>
+            <button id="cancelBtn">Non</button>
+        </div>
+        
+        <div id="successMessage" class="confirmation-message success-message">
+            <p>Votre commande a été passée avec succès !</p>
+        </div>
+        
+        <div id="emptyOrderMessage" class="confirmation-message" style="display: none;">
+            <p>Votre commande est vide</p>
         </div>
         
         
