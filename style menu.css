@@ -126,7 +126,7 @@ ul li a:hover {
     cursor: default;
 }
 .order-window {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
@@ -166,5 +166,19 @@ ul li a:hover {
     transition: background-color 0.3s ease;
 }
 .checkout-btn:hover {
-    background-color: rgb(142, 130, 130);
+    background-color: rgb(171, 106, 22);
 }
+.confirmation-message {
+    display: none;
+    position: fixed;
+    top: 30%; /* Place le message à 20px du haut */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 235, 205); 
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 9999;
+}
+
+
