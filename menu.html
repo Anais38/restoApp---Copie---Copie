@@ -1,528 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu du restaurant</title>
-    <link rel="stylesheet" href="style menu.css">
-</head>
-<body>
-    <div class="container">
-         <header>
-            <nav>
-                <ul class="minu">
-                    <li><a href="acceuil.html"><i class="fas fa-utensils"></i> acceuil</a></li>
-                    <li><a href="propos.html"><i class="fas fa-info-circle"></i> À propos</a></li>
-                    <li><a href="#offers"><i class="fas fa-tags"></i> Offres</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="category-icons">
-            <div class="category-icon" onclick="toggleCategory('entrees')">
-                <img src="img/entree.jpg" alt="Entrées">
-                <p>Entrées</p>
-            </div>
-            <div class="category-icon" onclick="toggleCategory('plats_principaux')">
-                <img src="img/steak_frites.jpg" alt="Plats principaux">
-                <p>Plats</p>
-            </div>
-            <div class="category-icon" onclick="toggleCategory('fruits_de_mer')">
-                <img src="img/plateau_fruits_de_mer.jpg" alt="Fruits de mer">
-                <p>Fruits de mer</p>
-            </div>
-            <div class="category-icon" onclick="toggleCategory('hamburgers')">
-                <img src="img/burger_classique.jpg" alt="Hamburgers">
-                <p>Hamburgers</p>
-            </div>
-            <div class="category-icon" onclick="toggleCategory('pizzas')">
-                <img src="img/pizza_margherita.jpg" alt="Pizzas">
-                <p>Pizzas</p>
-            </div>
-            <div class="category-icon" onclick="toggleCategory('desserts')">
-                <img src="img/dessert.jpg" alt="Desserts">
-                <p>Desserts</p>
-            </div>
-            <div class="category-icon" onclick="toggleCategory('boissons')">
-                <img src="img/boisson.jpg" alt="Boissons">
-                <p>Boissons</p>
-            </div>
-        </div>
-        
-        <div class="menu" id="entrees">
-            <ul>
-                <li class="menu-item">
-                    <img src="img/salade cesar.jpg" alt="Salade César">
-                    <p>Salade César</p>
-                    <div class="item-details">
-                        <p class="price">$8</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/bruschetta.jpg" alt="Bruschetta">
-                    <p>Bruschetta</p>
-                    <div class="item-details">
-                        <p class="price">$6</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/escargots.jpg" alt="Escargots">
-                    <p>Escargots</p>
-                    <div class="item-details">
-                        <p class="price">$12</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/caprese.jpg" alt="Caprese">
-                    <p>Caprese</p>
-                    <div class="item-details">
-                        <p class="price">$9</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/antipasto.jpg" alt="Antipasto">
-                    <p>antipasto</p>
-                    <div class="item-details">
-                        <p class="price">$10</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="menu" id="plats_principaux">
-            <ul>
-                <li class="menu-item">
-                    <img src="img/pizza_margherita.jpg" alt="Pizza Margherita">
-                    <p>Pizza Margherita</p>
-                    <div class="item-details">
-                        <p class="price">$12</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/pates_carbonara.jpg" alt="Pâtes Carbonara">
-                    <p>Pâtes Carbonara</p>
-                    <div class="item-details">
-                        <p class="price">$14</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/burger_classique.jpg" alt="Burger classique">
-                    <p>Burger classique</p>
-                    <div class="item-details">
-                        <p class="price">$10</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/steak_frites.jpg" alt="Steak frites">
-                    <p>Steak frites</p>
-                    <div class="item-details">
-                        <p class="price">$18</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/filet_saumon.jpg" alt="Filet de saumon">
-                    <p>Filet de saumon</p>
-                    <div class="item-details">
-                        <p class="price">$16</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="menu" id="fruits_de_mer">
-            <ul>
-                <li class="menu-item">
-                    <img src="img/moules_marinieres.jpg" alt="Moules marinières">
-                    <p>Moules marinières</p>
-                    <div class="item-details">
-                        <p class="price">$14</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/plateau_fruits_de_mer.jpg" alt="Plateau de fruits de mer">
-                    <p>Plateau de fruits de mer</p>
-                    <div class="item-details">
-                        <p class="price">$25</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/paella.jpg" alt="Paella">
-                    <p>Paella</p>
-                    <div class="item-details">
-                        <p class="price">$20</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/crevettes_grillees.jpg" alt="Crevettes grillées">
-                    <p>Crevettes grillées</p>
-                    <div class="item-details">
-                        <p class="price">$16</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/calamars_frits.jpg" alt="Calamars frits">
-                    <p>Calamars frits</p>
-                    <div class="item-details">
-                        <p class="price">$12</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="menu" id="hamburgers">
-            <ul>
-                <li class="menu-item">
-                    <img src="img/hamburger_classique.jpg" alt="Hamburger classique">
-                    <p>Hamburger classique</p>
-                    <div class="item-details">
-                        <p class="price">$8</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/cheeseburger.jpg" alt="Cheeseburger">
-                    <p>Cheeseburger</p>
-                    <div class="item-details">
-                        <p class="price">$9</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/burger_vegetarien.jpg" alt="Burger végétarien">
-                    <p>Burger végétarien</p>
-                    <div class="item-details">
-                        <p class="price">$10</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/burger_poulet.jpg" alt="Burger au poulet">
-                    <p>Burger au poulet</p>
-                    <div class="item-details">
-                        <p class="price">$11</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/burger_poisson.jpg" alt="Burger au poisson">
-                    <p>Burger au poisson</p>
-                    <div class="item-details">
-                        <p class="price">$12</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="menu" id="pizzas">
-            <ul>
-                <li class="menu-item">
-                    <img src="img/pizza_margherita.jpg" alt="Pizza Margherita">
-                    <p>Pizza Margherita</p>
-                    <div class="item-details">
-                        <p class="price">$12</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/pizza_quattro_stagioni.jpg" alt="Pizza Quattro Stagioni">
-                    <p>Pizza Quattro Stagioni</p>
-                    <div class="item-details">
-                        <p class="price">$14</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/pizza_peperoni.jpg" alt="Pizza Pepperoni">
-                    <p>Pizza Pepperoni</p>
-                    <div class="item-details">
-                        <p class="price">$13</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/pizza_4_fromages.jpg" alt="Pizza 4 Fromages">
-                    <p>Pizza 4 Fromages</p>
-                    <div class="item-details">
-                        <p class="price">$15</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/pizza_hawaienne.jpg" alt="Pizza Hawaïenne">
-                    <p>Pizza Hawaïenne</p>
-                    <div class="item-details">
-                        <p class="price">$14</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="menu" id="desserts">
-            <ul>
-                <li class="menu-item">
-                    <img src="img/tiramisu.jpg" alt="Tiramisu">
-                    <p>Tiramisu</p>
-                    <div class="item-details">
-                        <p class="price">$6</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/cheesecake.jpg" alt="Cheesecake">
-                    <p>Cheesecake</p>
-                    <div class="item-details">
-                        <p class="price">$5</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/creme_brulee.jpg" alt="Crème brûlée">
-                    <p>Crème brûlée</p>
-                    <div class="item-details">
-                        <p class="price">$7</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/mousse_chocolat.jpg" alt="Mousse au chocolat">
-                    <p>Mousse au chocolat</p>
-                    <div class="item-details">
-                        <p class="price">$6</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/gateau_fromage.jpg" alt="Gâteau au fromage">
-                    <p>Gâteau au fromage</p>
-                    <div class="item-details">
-                        <p class="price">$8</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="menu" id="boissons">
-            <ul>
-                <li class="menu-item">
-                    <img src="img/eau_minerale.jpg" alt="Eau minérale">
-                    <p>Eau minérale</p>
-                    <div class="item-details">
-                        <p class="price">$2</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/jus_orange.jpg" alt="Jus d'orange frais">
-                    <p>Jus d'orange frais</p>
-                    <div class="item-details">
-                        <p class="price">$4</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/soda.jpg" alt="Soda">
-                    <p>Soda</p>
-                    <div class="item-details">
-                        <p class="price">$3</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/the_glace.jpg" alt="Thé glacé">
-                    <p>Thé glacé</p>
-                    <div class="item-details">
-                        <p class="price">$3</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <img src="img/cafe.jpg" alt="Café">
-                    <p>Café</p>
-                    <div class="item-details">
-                        <p class="price">$2</p>
-                        <div class="order-counter">
-                            <button class="counter-btn decrement">-</button>
-                            <input type="number" value="0" class="quantity" readonly>
-                            <button class="counter-btn increment">+</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="order-window">
-            <h2>Votre Commande</h2>
-            <ul class="order-list">
-            </ul>
-            <button class="checkout-btn">Envoyer la commande</button>
-        </div>
-        <div id="confirmationMessage" class="confirmation-message">
-            <p>Voulez-vous vraiment passer votre commande ?</p>
-            <button id="confirmBtn">Oui</button>
-            <button id="cancelBtn">Non</button>
-        </div>
-        
-        <div id="successMessage" class="confirmation-message success-message">
-            <p>Votre commande a été passée avec succès !</p>
-        </div>
-        
-        <div id="emptyOrderMessage" class="confirmation-message" style="display: none;">
-            <p>Votre commande est vide</p>
-        </div>
-        
-        
-    <script src="menu.js"></script>
-</body>
-</html>
+// Fonction pour basculer entre les catégories de menu
+function toggleCategory(categoryId) {
+    // Sélection de toutes les catégories de menu
+    var categories = document.querySelectorAll('.menu');
+
+    // Parcourir toutes les catégories
+    categories.forEach(function(cat) {
+        // Vérifier si la catégorie correspond à l'ID spécifié
+        if (cat.id === categoryId) {
+            cat.style.display = "block"; // Afficher la catégorie si c'est la bonne
+        } else {
+            cat.style.display = "none"; // Masquer les autres catégories
+        }
+    });
+}
+
+// Appeler toggleCategory avec l'ID de la catégorie "entrees" lorsque la page est chargée
+document.addEventListener("DOMContentLoaded", function() {
+    toggleCategory('entrees');
+});
+
+// JavaScript pour le compteur de commande
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélection de la fenêtre de commande et de la liste des commandes
+    const orderWindow = document.querySelector('.order-window');
+    const orderList = orderWindow.querySelector('.order-list');
+
+    // Fonction pour trouver un élément de commande spécifique dans la liste
+    function findOrderItem(itemName) {
+        return Array.from(orderList.children).find(item => item.textContent.startsWith(itemName));
+    }
+
+    // Fonction pour mettre à jour la quantité d'un élément de commande
+    function updateOrderItem(itemName, quantity) {
+        const orderItem = findOrderItem(itemName);
+        if (orderItem) {
+            if (quantity === 0) {
+                orderItem.remove(); // Supprime l'élément si la quantité est 0
+            } else {
+                orderItem.textContent = `${itemName}: ${quantity}`; // Met à jour la quantité sinon
+            }
+        } else {
+            if (quantity > 0) {
+                addOrderItem(itemName, quantity); // Ajoute l'élément s'il n'existe pas déjà
+            }
+        }
+    }
+
+    // Fonction pour ajouter un élément de commande à la liste
+    function addOrderItem(itemName, quantity) {
+        const orderItem = document.createElement('li');
+        orderItem.textContent = `${itemName}: ${quantity}`;
+        orderList.appendChild(orderItem);
+    }
+
+    // Fonction pour gérer l'ajout ou la soustraction d'un élément de commande
+    function addToOrder(event) {
+        const menuItem = event.target.closest('.menu-item');
+        const itemName = menuItem.querySelector('p').textContent;
+        const quantityInput = menuItem.querySelector('.quantity');
+        let quantity = parseInt(quantityInput.value);
+
+        if (event.target.classList.contains('increment')) {
+            quantity++;
+        } else {
+            quantity = Math.max(0, quantity - 1); // Assurez-vous que la quantité ne soit pas négative
+        }
+
+        quantityInput.value = quantity;
+        updateOrderItem(itemName, quantity);
+    }
+
+    // Sélection de tous les boutons du compteur
+    const counterButtons = document.querySelectorAll('.counter-btn');
+    counterButtons.forEach(button => {
+        button.addEventListener('click', addToOrder); // Ajouter un écouteur d'événements à chaque bouton
+    });
+
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    const confirmationMessage = document.getElementById('confirmationMessage');
+    const successMessage = document.getElementById('successMessage');
+    const emptyOrderMessage = document.getElementById('emptyOrderMessage');
+
+    // Fonction pour afficher le message de succès
+    function displaySuccessMessage() {
+        successMessage.style.display = 'block';
+    }
+
+    // Ajout d'un écouteur d'événements au bouton "Envoyer la commande"
+    checkoutBtn.addEventListener('click', function() {
+        // Vérifier si la commande est vide
+        if (orderList.children.length === 0) {
+            // La commande est vide
+            emptyOrderMessage.style.display = 'block'; // Afficher le message "Votre commande est vide"
+            confirmationMessage.style.display = 'none'; // Cacher le message de confirmation
+
+            // Cacher le message "Votre commande est vide" après 1 seconde
+            setTimeout(function() {
+                emptyOrderMessage.style.display = 'none';
+            }, 1000);
+        } else {
+            // Afficher le message de confirmation avec deux boutons
+            confirmationMessage.style.display = 'block';
+            emptyOrderMessage.style.display = 'none'; // Cacher le message "Votre commande est vide"
+        }
+    });
+
+    // Ajout d'un écouteur d'événements au bouton "Oui" dans le message de confirmation
+    document.getElementById('confirmBtn').addEventListener('click', function() {
+        confirmationMessage.style.display = 'none'; // Cacher le message de confirmation
+        displaySuccessMessage(); // Afficher le message de succès
+        setTimeout(function() {
+            successMessage.style.display = 'none'; // Cacher le message de succès après quelques secondes
+        }, 10000); // Masquer le message après 10 secondes
+        emptyOrderMessage.style.display = 'none'; // Cacher le message "Votre commande est vide"
+        // Réinitialiser la commande
+        orderList.innerHTML = '';
+
+        // Réinitialiser tous les compteurs à 0
+        const quantityInputs = document.querySelectorAll('.quantity');
+        quantityInputs.forEach(input => {
+            input.value = 0;
+        });
+    });
+
+    // Ajout d'un écouteur d'événements au bouton "Non" dans le message de confirmation
+    document.getElementById('cancelBtn').addEventListener('click', function() {
+        confirmationMessage.style.display = 'none'; // Cacher le message de confirmation
+        emptyOrderMessage.style.display = 'none'; // Cacher le message "Votre commande est vide"
+    });
+});
