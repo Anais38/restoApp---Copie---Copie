@@ -1,0 +1,137 @@
+/* Styles généraux */
+
+body {
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color:#DDD3C8;
+}
+
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    margin-left: 90%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    gap: 30px; /* Espacement entre les bulles */
+}
+
+nav ul li {
+    border-radius: 50%;
+    background-color: rgb(14, 53, 12);
+    width: 80px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    box-shadow: 0 0 20px black;
+}
+
+
+
+nav ul li a {
+    text-decoration: none;
+    color: beige;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+nav ul li a:active {
+    transform: scale(0.95);
+}
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.social-media, .restaurant-info {
+    background-color: rgb(14, 53, 12);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1 1 100%;
+}
+
+.social-media h2, .restaurant-info h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color:  #DDD3C8;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: rgb(14, 53, 12);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: beige;
+    transition: background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #DDD3C8;
+}
+
+.restaurant-info p {
+    margin: 10px 0;
+    color:  rgb(14, 53, 12);
+}
+
+.restaurant-info .info-box {
+    flex: 1 1 calc(50% - 10px); /* Diviser l'espace en deux avec un espace de 10px entre les boîtes */
+    background-color: beige;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    display: flex; /* Utiliser flexbox */
+    flex-direction: center ; /* Aligner verticalement */
+    align-items: center; /* Aligner horizontalement */
+    width: 200px; /* Largeur des bulles */
+    height: 120px; /* Hauteur des bulles */
+}
+
+.restaurant-info .info-box p {
+    margin: 0;
+}
+
+.restaurant-info .address, .restaurant-info .hours {
+    margin: 10px 0; /* Ajouter un espacement entre les bulles */
+}
+
+.restaurant-info .info-boxes {
+    display: flex; /* Utiliser flexbox */
+    gap: 20px; /* Espacement entre les bulles */
+}
+footer {
+    background-color:  rgb(14, 53, 12);
+    color: beige;
+    padding: 20px 0;
+    text-align: center;
+}
+
