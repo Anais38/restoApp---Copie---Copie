@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: burlywood;
+    background-color: #DDD3C8;
 }
 
 header {
@@ -16,7 +16,7 @@ header {
     height: 70px;
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px rgb(14, 53, 12);
 }
 
 .logo img {
@@ -41,12 +41,12 @@ nav ul {
 nav ul li {
     margin-right: 30px;
     border-radius: 50%;
-    background-color: rgb(183, 140, 85);
+    background-color: rgb(14, 53, 12);
     width: 80px;
     height: 70px;
     text-align: center;
     line-height: 70px;
-    box-shadow: 0 0 20px rgb(109, 67, 11);
+    box-shadow: 0 0 20px rgb(14, 53, 12);
 }
 
 nav ul li a {
@@ -82,24 +82,24 @@ nav ul li a:active {
     margin-bottom: 20px;
     width: 355px;
     height: 3px;
-    background-color: rgb(109, 67, 11);
+    background-color:rgb(14, 53, 12);
 }
 .apropos .ligne h2 {
     font-size: 30px;
     margin-bottom: 20px;
-    color: rgb(109, 67, 11);
+    color: rgb(14, 53, 12);
 }
 
 .apropos .ligne p {
     font-size: 15px;
     line-height: 1.5;
     margin-bottom: 20px;
-    color: rgb(109, 67, 11);
+    color:rgb(14, 53, 12);
 
 }
 
 footer {
-    background-color: rgb(109, 67, 11); /* Couleur de fond similaire à celle des éléments de navigation et autres détails */
+    background-color: rgb(14, 53, 12); /* Couleur de fond similaire à celle des éléments de navigation et autres détails */
     color: #fff; /* Texte blanc pour contraster avec le fond sombre */
     padding: 20px 0; /* Un peu de padding pour l'espacement interne */
     text-align: center; /* Centrer le contenu du footer */
