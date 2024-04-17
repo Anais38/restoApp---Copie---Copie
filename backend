@@ -1,0 +1,58 @@
+import tkinter as tk
+from tkinter import filedialog
+import mysql.connector
+
+# Fonction pour ajouter une image à la base de données
+def ajouter_image_bd():
+    # Ouvrir une boîte de dialogue pour sélectionner un fichier image
+    file_path = filedialog.askopenfilename(title="Sélectionner une image")
+
+    if file_path:
+        try:
+            # Lire le contenu de l'image en tant que données binaires
+            with open(file_path, "rb") as file:
+                image_data = file.read()
+
+            # Se connecter à la base de données MySQL
+            conn = mysql.connector.connect(
+                host="localhost",
+                user="votre_utilisateur",
+                password="votre_mot_de_passe",
+                database="votre_base_de_donnees"
+            )
+
+            # Créer un curseur pour exécuter des requêtes SQL
+            cursor = conn.cursor()
+
+            # Requête SQL pour insérer l'image dans la base de données
+            sql = "INSERT INTO Menu (nom_plat, description, prix, image) VALUES (%s, %s, %s, %s)"
+            nom_plat = "Nom du plat"  # Remplacez par le nom du plat
+            description = "Description du plat"  # Remplacez par la description du plat
+            prix = 0.0  # Remplacez par le prix du plat
+            val = (nom_plat, description, prix, image_data)
+
+            # Exécuter la requête SQL
+            cursor.execute(sql, val)
+
+            # Valider la transaction
+            conn.commit()
+
+            # Fermer le curseur et la connexion à la base de données
+            cursor.close()
+            conn.close()
+
+            print("Image ajoutée avec succès à la base de données.")
+
+        except Exception as e:
+            print(f"Erreur lors de l'ajout de l'image : {e}")
+
+# Créer une fenêtre d'interface utilisateur
+root = tk.Tk()
+root.title("Ajouter une image à la base de données")
+
+# Ajouter un bouton pour ajouter une image
+btn_ajouter_image = tk.Button(root, text="Ajouter une image", command=ajouter_image_bd)
+btn_ajouter_image.pack(pady=20)
+
+# Lancer la boucle principale de l'interface utilisateur
+root.mainloop()
