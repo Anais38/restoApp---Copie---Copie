@@ -56,3 +56,51 @@ btn_ajouter_image.pack(pady=20)
 
 # Lancer la boucle principale de l'interface utilisateur
 root.mainloop()
+
+
+
+import mysql.connector
+
+def ajouter_plat(nom_plat, description, prix, chemin_image):
+    try:
+        # Lire le contenu de l'image en tant que données binaires
+        with open(chemin_image, "rb") as file:
+            image_data = file.read()
+
+        # Se connecter à la base de données MySQL
+        conn = mysql.connector.connect(
+            host="localhost",
+            user="votre_utilisateur",
+            password="votre_mot_de_passe",
+            database="votre_base_de_donnees"
+        )
+
+        # Créer un curseur pour exécuter des requêtes SQL
+        cursor = conn.cursor()
+
+        # Requête SQL pour insérer le plat dans la base de données
+        sql = "INSERT INTO Menu (nom_plat, description, prix, image) VALUES (%s, %s, %s, %s)"
+        val = (nom_plat, description, prix, image_data)
+
+        # Exécuter la requête SQL
+        cursor.execute(sql, val)
+
+        # Valider la transaction
+        conn.commit()
+
+        # Fermer le curseur et la connexion à la base de données
+        cursor.close()
+        conn.close()
+
+        print("Plat ajouté avec succès à la base de données.")
+
+    except Exception as e:
+        print(f"Erreur lors de l'ajout du plat : {e}")
+
+# Exemple d'utilisation de la fonction pour ajouter un plat
+nom_plat = "Steak frites"
+description = "Steak de bœuf avec des frites croustillantes"
+prix = 25.99
+chemin_image = "chemin/vers/image.jpg"  # Remplacez par le chemin de l'image
+ajouter_plat(nom_plat, description, prix, chemin_image)
+
