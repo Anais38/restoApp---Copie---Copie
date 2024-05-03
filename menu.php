@@ -186,6 +186,7 @@ require("config/commande.php");
     <div class="order-window">
         <h2>Votre Commande</h2>
         <ul class="order-list" id="command"></ul>
+	<div id="totalPrice">Prix total: 0</div>
         <button class="checkout-btn">Envoyer la commande</button>
     </div>
     <div id="confirmationMessage" class="confirmation-message">
