@@ -15,7 +15,7 @@ function toggleCategory(categoryId) {
 
 // Appeler toggleCategory avec l'ID de la catégorie "entrees" lorsque la page est chargée
 document.addEventListener("DOMContentLoaded", function() {
-   toggleCategory('1');
+    toggleCategory('1');
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -68,10 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
         updateOrderItem(itemName, quantity);
     }
 
-    // Sélection de tous les boutons du compteur
+    // Sélection de tous les boutons du compteur et ajout des écouteurs d'événements
     const counterButtons = document.querySelectorAll('.counter-btn');
     counterButtons.forEach(button => {
-        button.addEventListener('click', addToOrder); // Ajouter un écouteur d'événements à chaque bouton
+        button.addEventListener('click', addToOrder);
     });
 
     const checkoutBtn = document.querySelector('.checkout-btn');
@@ -84,8 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
         successMessage.style.display = 'block';
     }
 
-     // Ajout d'un écouteur d'événements au bouton "Envoyer la commande"
-     checkoutBtn.addEventListener('click', function() {
+    // Ajout d'un écouteur d'événements au bouton "Envoyer la commande"
+    checkoutBtn.addEventListener('click', function() {
         // Vérifier si la commande est vide
         if (orderList.children.length === 0) {
             // La commande est vide
