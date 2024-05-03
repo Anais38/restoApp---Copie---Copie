@@ -7,7 +7,7 @@ require("config/commande.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu du restaurant</title>
     <link rel="stylesheet" href="style menu.css">
-    <script src="menu.js" defer></script>
+    <script src="menu.js" defer> </script>
     
 </head>
 <body>
@@ -23,15 +23,16 @@ require("config/commande.php");
             </nav>
         </header>
         <div class="category-icons">
-          <?php 
-              $categories = afficher("catégories");
-              foreach ($categories as $categorie):?>
-                   <div class="category-icon" onclick="toggleCategory('<?= $categorie->id ?>')">
-                         <img src="<?= $categorie->img ?>" alt="<?= $categorie->name ?>">
-                         <p><?= $categorie->name ?></p>
-                    </div> 
-           <?php endforeach; ?> 
+            <?php 
+                $categories = afficher("catégories");
+                foreach ($categories as $categorie):?>
+                <div class="category-icon" onclick="toggleCategory('<?php echo htmlspecialchars($categorie->id, ENT_QUOTES); ?>')">
+                     <img src="<?= $categorie->img ?>" alt="<?= $categorie->name ?>">
+                     <p><?= $categorie->name ?></p>
+                </div> 
+            <?php endforeach; ?> 
         </div>
+
 
         
         <div class="menu" id="1">
