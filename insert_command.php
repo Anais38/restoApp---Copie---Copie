@@ -1,42 +1,52 @@
-<?php
-// Vérifier si des données ont été envoyées en POST
+<?php 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Connexion à la base de données (à remplacer par vos informations de connexion)
-    $conn = new PDO('mysql:host=localhost;dbname=menu', 'root', '');
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try {
+        $conn = new PDO('mysql:host=localhost;dbname=menu', 'root', '');
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Vérifier si les données sont des tableaux et les traiter individuellement
-    if (is_array($_POST['itemName']) && is_array($_POST['quantity'])) {
-        // Récupérer les tableaux des noms d'articles et des quantités depuis les données POST
-        $itemNames = $_POST['itemName'];
-        $quantities = $_POST['quantity'];
+        if (isset($_POST['itemName']) && isset($_POST['quantity']) && isset($_POST['totalPrice'])) {
+            $itemNames = $_POST['itemName'];
+            $quantities = $_POST['quantity'];
+            $totalPrices = $_POST['totalPrice'];
 
-        // Boucler sur les tableaux itemName et quantity pour insérer chaque élément dans la base de données
-        for ($i = 0; $i < count($itemNames); $i++) {
-            // Récupérer le nom de l'article et la quantité actuels dans la boucle
-            $itemName = $itemNames[$i];
-            $quantity = $quantities[$i];
-            $
-            // Préparer et exécuter la requête d'insertion dans la table "commande"
-            $stmt = $conn->prepare("INSERT INTO commande (article_name, quantity) VALUES (:itemName, :quantity)");
-            $stmt->bindParam(':itemName', $itemName);
-            $stmt->bindParam(':quantity', $quantity);
+            // Initialiser une chaîne de caractères pour stocker les détails de la commande
+            $orderDetails = '';
 
-            // Exécuter la requête d'insertion
-            if ($stmt->execute()) {
-                // Afficher un message de succès si l'insertion est réussie
-                echo "Commande insérée avec succès pour $itemName avec quantité $quantity.<br>";
-            } else {
-                // Afficher un message d'erreur si l'insertion échoue
-                echo "Erreur lors de l'insertion de la commande pour $itemName avec quantité $quantity.<br>";
+            // Boucle pour construire la chaîne de caractères des détails de la commande et calculer le prix total
+            $totalPriceOfOrder = 0;
+            for ($i = 0; $i < count($itemNames); $i++) {
+                $itemName = $itemNames[$i];
+                $quantity = $quantities[$i];
+                $price = $totalPrices[$i] / $quantity; // Calcul du prix unitaire
+
+                // Ajouter les détails de l'article et sa quantité à la chaîne de caractères
+                $orderDetails .= "$quantity x $itemName, ";
+
+                // Ajouter le prix total de cet élément à la commande
+                $totalPriceOfOrder += $totalPrices[$i];
             }
+
+            // Retirer la virgule en trop à la fin de la chaîne de caractères
+            $orderDetails = rtrim($orderDetails, ", ");
+
+            // Préparer et exécuter la requête d'insertion avec les détails de la commande et le prix total
+            $stmt = $conn->prepare("INSERT INTO commande (order_details, total_prix) VALUES (:orderDetails, :totalPrice)");
+            $stmt->bindParam(':orderDetails', $orderDetails);
+            $stmt->bindParam(':totalPrice', $totalPriceOfOrder);
+
+            if ($stmt->execute()) {
+                echo "Commande insérée avec succès avec détails: $orderDetails et prix total $totalPriceOfOrder.<br>";
+                
+            } else {
+                echo "Erreur lors de l'insertion de la commande.<br>";
+            }
+        } else {
+            echo "Les données envoyées ne sont pas valides.";
         }
-    } else {
-        // Afficher un message si les données envoyées ne sont pas au format attendu (tableaux)
-        echo "Les données envoyées ne sont pas valides.";
+    } catch (PDOException $e) {
+        echo "Erreur de base de données : " . $e->getMessage();
     }
 } else {
-    // Afficher un message si la méthode de requête n'est pas POST
     echo "Méthode de requête invalide.";
 }
 ?>
