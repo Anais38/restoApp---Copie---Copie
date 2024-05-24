@@ -1,0 +1,26 @@
+body{
+    background-color: #DDD3C8;
+}
+.commandes-style {
+    border: 1px solid #DDD3C8;
+    padding: 10px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    background-color: #617a6a;
+    border-radius: 15%;
+    position: relative;  
+}
+.commandes-style p {
+    margin-bottom: 40px; 
+}
+.commandes-style button {
+    border-radius: 15%;
+    position: absolute; /* Positionnement absolu par rapport au conteneur */
+    bottom: 0; /* Positionné au bas du conteneur */
+    left: 0; /* Aligné sur la gauche */
+    width: 100%;
+    height: 30px; /* Prend toute la largeur du conteneur */
+    background-color: #131212;
+    color: beige;
+}
